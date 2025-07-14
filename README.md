@@ -1,22 +1,19 @@
-AES-FileVault
+🔐 AES-FileVault
 
-A local file encryption-decryption system using AES-256 to securely store and retrieve sensitive files. It uses random key + IV generation, logs metadata, and ensures confidentiality through AES cryptography.
-
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+A local file encryption-decryption system built using AES-256 to securely store and retrieve sensitive files. It features random key and IV generation, metadata logging, and strong confidentiality via AES cryptography.
 
 📁 Folder Structure
 
 AES-FileVault/
-├── main.py                  
-├── metadata.json           
-├── requirements.txt        
-├── README.md               
-├── test files/             
-└── vaulted/                
+├── main.py              
+├── metadata.json        
+├── requirements.txt     
+├── README.md            
+├── test files/         
+└── vaulted/            
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
 
 ⚙️ Technologies Used
 
@@ -24,87 +21,69 @@ Python 3.12
 
 cryptography library
 
-AES-256 (CBC mode)
+AES-256 encryption in CBC mode
 
-Random key & IV generation
+Secure random key and IV generation
 
 SHA-256 hashing
 
 JSON for metadata logging
 
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
 🚀 Features
 
-🔐 AES-256 Encryption
+AES-256 strong file encryption
 
-🧩 Random IV + Key for every file
+Unique random IV and key for every file
 
-📟 metadata.json tracks encryption history
+Tracks encryption history using metadata.json
 
-✅ Integrity with SHA-256 hash
+Verifies integrity with SHA-256
 
-⟲ Easy file decryption using CLI
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+Simple and interactive CLI for usage
 
 📦 Usage
 
 ▶ Encrypt a File
 
-Put your file in test files/ folder
+Place the file to encrypt in the test files/ folder
 
-Run:
+Run the program:
 
 python main.py
 
-Choose:
+Choose option 1. Encrypt a file
 
-1. Encrypt a file
-
-Input path like:
+Enter the file path, e.g.,
 
 test files/mysecret.pdf
 
-Get:
+Output includes:
+
+AES key and IV (displayed to user)
+
+Encrypted file saved in vaulted/
+
+A new entry logged in metadata.json
+
+🔓 Decrypt a File
+
+Choose option 2. Decrypt a file
+
+Enter:
+
+Path to encrypted .enc file
 
 AES key
 
 IV
 
-Encrypted file inside vaulted/
+Output:
 
-Entry in metadata.json
-
-🔓 Decrypt a File
-
-Choose:
-
-2. Decrypt a file
-
-Then enter:
-
-Path to .enc file
-
-AES key (from encryption)
-
-IV
-
-Get:
-
-Decrypted file saved with .decrypted.txt extension
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+Decrypted file saved with .decrypted.txt extension inside vaulted/
 
 🔍 metadata.json Explained
 
-This file stores info like:
+This file logs each encryption operation:
 
 {
   "original": "testfile.webp",
@@ -115,77 +94,78 @@ This file stores info like:
   "iv": "3e49fccb..."
 }
 
-So you don’t lose any record of what was encrypted.
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+This ensures traceability and auditability.
 
 📆 requirements.txt
 
 cryptography==42.0.5
 
-Install using:
+Install dependencies using:
 
 pip install -r requirements.txt
 
+🔐 How It Works Internally
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+🔄 Encryption Flow
 
+Random Key Generation: 32-byte key for AES-256
 
-📚 Cryptography + Password Storage Insight
+IV Generation: 16-byte random initialization vector
 
-What Happens Under the Hood
+File Block Division: Split file into 16-byte blocks
 
-Random Key Generation: 32 bytes for AES-256
+AES Encryption: Each block encrypted using key + IV
 
-Random IV Generation: 16 bytes (CBC mode)
+Encrypted Output: File saved in vaulted/
 
-File is broken into blocks of 16 bytes
+Key + IV: Displayed to user for secure storage
 
-AES encrypts each block using key + IV
+Logging: Metadata saved to metadata.json
 
-Encrypted file saved in vaulted/
+🔑 Password Verification Mechanism
 
-Key + IV are shown for decryption (user saves)
+During decryption, entered password is hashed
 
-metadata.json stores all necessary info to log
+System compares it with stored hash
 
-How System Verifies Password
+If hashes match, access is granted
 
-On decryption, input password is hashed
+Else, access is denied
 
-It matches the hash stored in system
+🌐 Secure Random Password Hashing Technique
 
-If match, access granted; else denied
+🔐 Modern Industry Standard: PBKDF2 + AES + SHA-256
 
+Step-by-step Process:
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+User creates a secure password (random string)
 
+Generate a unique salt value
 
-🌐 Modern Org Practice: Secure Random Password Hashing
+Use PBKDF2 with SHA-256 to hash password + salt
 
-Technique: PBKDF2 with AES & SHA256 (Industry Standard)
+Derive AES key from the hash output
 
-Steps:
+Encrypt file data using AES and store securely
 
-Generate a secure random string (user password)
+Save salt and hash securely in password vault (not the key)
 
-Create a salt (random bits for uniqueness)
+This protects against brute-force attacks and rainbow tables.
 
-Hash password using PBKDF2 + SHA256
+🧠 Quick Recap
 
-Use hashed password as AES key
+AES-256 encrypts data using secure keys & IVs
 
-Encrypt data, save only encrypted file
+Files are split into 16-byte blocks and encrypted
 
-Store salt + hash in protected password vault
+Random key + IV generated per session
 
+Passwords hashed and verified (not stored as plain text)
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+All logs written to metadata.json
 
+Uses secure PBKDF2 hashing technique for deriving AES keys
 
-👥 Author
+👨‍💻 Author
 
-Abhisek PandaCybersecurity InternAES-FileVault Project - Secure File Encryption & Storage
-
+Abhisek PandaCybersecurity InternAES-FileVault Project – Secure File Encryption & Storage
