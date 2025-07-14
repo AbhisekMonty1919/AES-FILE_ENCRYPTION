@@ -9,13 +9,12 @@ A local file encryption-decryption system using AES-256 to securely store and re
 📁 Folder Structure
 
 AES-FileVault/
-├── main.py                  # CLI-based encryption/decryption
-├── metadata.json            # Stores logs of all encrypted files
-├── requirements.txt         # Required Python packages
-├── README.md                # Project Documentation
-├── test files/              # Place input files here
-└── vaulted/                 # Encrypted/Decrypted output files
-
+├── main.py                  
+├── metadata.json           
+├── requirements.txt        
+├── README.md               
+├── test files/             
+└── vaulted/                
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
