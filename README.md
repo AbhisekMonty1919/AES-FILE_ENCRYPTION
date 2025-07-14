@@ -9,7 +9,6 @@ A local file encryption-decryption system using AES-256 to securely store and re
 📁 Folder Structure
 
 AES-FileVault/
-
 ├── main.py                  
 ├── metadata.json           
 ├── requirements.txt        
