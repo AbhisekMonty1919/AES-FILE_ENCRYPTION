@@ -1,0 +1,10 @@
+[
+    {
+        "original": "testfile.webp",
+        "encrypted": "testfile.webp.enc",
+        "hash": "40852fdfa3ab8ac05dc4e00cd740506b543f0f75908625bf3d46f2ce0dec8c92",
+        "time": "2025-07-14T22:34:35.346871",
+        "key": "187e90ed9de3067d52fc5be88a56c8335d70ee3d28ce9af2f0888bd8c6050cd5",
+        "iv": "3e49fccb2880af3ce82cb82a7201aa38"
+    }
+]
