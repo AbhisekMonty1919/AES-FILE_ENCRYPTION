@@ -1,4 +1,4 @@
-🔐 AES-FileVault
+#🔐 AES-FileVault
 
 A local file encryption-decryption system built using AES-256 to securely store and retrieve sensitive files. It features random key and IV generation, metadata logging, and strong confidentiality via AES cryptography.
 
