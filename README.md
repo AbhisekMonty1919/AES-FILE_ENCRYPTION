@@ -140,6 +140,7 @@ Logging: Metadata saved to metadata.json
 
 
 
+
 ### 🔑 Password Verification Mechanism
 
 During decryption, entered password is hashed
